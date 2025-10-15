@@ -1,0 +1,51 @@
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+SENDER_EMAIL = "your_email@gmail.com"   # replace with your Gmail
+SENDER_PASSWORD = "your_app_password"   # use Gmail App Password, not your login password
+RECEIVER_EMAIL = "hariombalang@gmail.com"
+
+def send_email(subject, body, sender_email, receiver_email, password):
+    msg = MIMEMultipart()
+    msg["From"] = sender_email
+    msg["To"] = receiver_email
+    msg["Subject"] = subject
+
+    msg.attach(MIMEText(body, "plain"))
+
+    try:
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+            server.starttls()
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, msg.as_string())
+            print("Email sent successfully ✅")
+    except Exception as e:
+        print("Error sending email:", e)
+
+
+if __name__ == "__main__":
+    btc_df = load_and_prepare(BTC_FILE, "BTC")
+    eth_df = load_and_prepare(ETH_FILE, "ETH")
+    btc_return = train_and_predict(btc_df)
+    eth_return = train_and_predict(eth_df)
+
+    predicted_returns = {"BTC": btc_return, "ETH": eth_return}
+    portfolio_return = PORTFOLIO_WEIGHTS["BTC"] * btc_return + PORTFOLIO_WEIGHTS["ETH"] * eth_return
+
+    # Format results
+    result_text = "Predicted Individual Returns:\n"
+    for coin, ret in predicted_returns.items():
+        result_text += f"{coin}: {ret*100:.2f}%\n"
+    result_text += f"\nPredicted Portfolio Return:\n{portfolio_return*100:.2f}%"
+
+    print(result_text)
+
+    # Send email
+    send_email(
+        subject="Crypto Portfolio Prediction Results",
+        body=result_text,
+        sender_email=SENDER_EMAIL,
+        receiver_email=RECEIVER_EMAIL,
+        password=SENDER_PASSWORD
+    )
