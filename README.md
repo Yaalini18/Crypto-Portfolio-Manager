@@ -1,7 +1,7 @@
 # Crypto Portfolio Management Projects Report
 
 
-##  **Project m2p1 – Portfolio Metrics Calculation (Portfolio_math.py)**
+##  **Project m2p1 – Portfolio Metrics Calculation (Portfolio_math.py)** 
 
 ###  **Objective**
 The purpose of this project is to build a structured approach to calculating portfolio metrics such as expected return and risk using historical cryptocurrency data. The project focuses on:
@@ -391,6 +391,8 @@ The project delivered a **complete crypto portfolio management system** combinin
 - Strategic allocation and stress testing  
 
 It demonstrates a strong foundation in **Python programming, financial modeling, and data-driven investment analysis**, offering a scalable path toward an adaptive AI-based investment platform.
-#   C r y p t o - P o r t f o l i o - M a n a g e r  
- #   C r y p t o - P o r t f o l i o - M a n a g e r  
+#   C r y p t o - P o r t f o l i o - M a n a g e r 
+ 
+ #   C r y p t o - P o r t f o l i o - M a n a g e r 
+ 
  
