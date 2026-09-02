@@ -19,7 +19,7 @@ A Python-based application that analyzes cryptocurrency portfolios using histori
 
 ##  Tech Stack
 
-**Python • Pandas • NumPy • SQLite • scikit-learn • yfinance**
+**Python • Pandas • NumPy • SQLite • scikit-learn**
 
 ## Project Workflow
 
